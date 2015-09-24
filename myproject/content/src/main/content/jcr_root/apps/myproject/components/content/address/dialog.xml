@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    xtype="dialog">
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dialog){&#xa;var path=dialog.path;&#xa;if (path) {&#xa;    var pagePath = path.substring(0,path.indexOf(&quot;/jcr:content&quot;) + 12); &#xa;    var address1Value =&#x9;this.findById(&quot;address1&quot;).getValue();&#xa;&#x9;var address2Value =&#x9;this.findById(&quot;address2&quot;).getValue();&#xa;&#x9;&#xa;&#x9;CQ.Ext.Ajax.request({ &#xa;    url : pagePath,&#xa;&#x9; headers: {&#xa;         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'&#xa;&#x9;},&#x9;&#xa;    params : {&#xa;&#x9;&#x9;'_charset_' : 'utf-8',&#xa;&#x9;&#x9;locationType : this.findById(&quot;locationType&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;kpmgMemberFirm : this.findById(&quot;kpmgMemberFirm&quot;).getValue(),&#xa;&#x9;&#x9;companyName : this.findById(&quot;companyName&quot;).getValue(),&#xa;&#x9;&#x9;address1 : this.findById(&quot;address1&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;address2 : this.findById(&quot;address2&quot;).getValue(),&#xa;&#x9;&#x9;city : this.findById(&quot;city&quot;).getValue(),&#xa;&#x9;&#x9;state : this.findById(&quot;state&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;postalCode : this.findById(&quot;postalCode&quot;).getValue(),&#xa;&#x9;&#x9;country : this.findById(&quot;country&quot;).getValue(),&#xa;&#x9;&#x9;telephone : this.findById(&quot;telephone&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;fax : this.findById(&quot;fax&quot;).getValue(),&#xa;&#x9;&#x9;isoCountryCode : this.findById(&quot;isoCountryCode&quot;).getValue(),&#xa;&#x9;&#x9;mailingAddr1 : this.findById(&quot;mailingAddr1&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;mailingAddr2 : this.findById(&quot;mailingAddr2&quot;).getValue(),&#xa;&#x9;&#x9;mailingCity : this.findById(&quot;mailingCity&quot;).getValue(),&#xa;&#x9;&#x9;mailingState : this.findById(&quot;mailingState&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;mailingPostalCode : this.findById(&quot;mailingPostalCode&quot;).getValue(),&#xa;&#x9;&#x9;mailingCountry : this.findById(&quot;mailingCountry&quot;).getValue(),&#xa;&#x9;&#x9;email : this.findById(&quot;email&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;locationWebsite : this.findById(&quot;locationWebsite&quot;).getValue(),&#xa;&#x9;&#x9;longitude : this.findById(&quot;longitude&quot;).getValue(),&#x9;&#x9;&#xa;&#x9;&#x9;latitude : this.findById(&quot;latitude&quot;).getValue()    },&#xa;    success: function(objServerResponse){&#xa;        &#xa;    },&#xa;    failure : function(objServerResponse){ &#xa;    }&#xa;});&#xa;}&#xa;}"
+        loadcontent="function(dialog){&#xa;var path=dialog.path;&#xa;if (path) { &#xa;&#x9;&#x9;var pagePath = path.substring(0,path.indexOf(&quot;/jcr:content&quot;) + 12); &#xa;        var pageInfo = CQ.HTTP.eval(pagePath + &quot;.1.json&quot;);&#xa;&#x9;&#x9;this.findById(&quot;locationType&quot;).setValue(pageInfo[&quot;locationType&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;kpmgMemberFirm&quot;).setValue(pageInfo[&quot;kpmgMemberFirm&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;companyName&quot;).setValue(pageInfo[&quot;companyName&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;address1&quot;).setValue(pageInfo[&quot;address1&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;address2&quot;).setValue(pageInfo[&quot;address2&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;city&quot;).setValue(pageInfo[&quot;city&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;state&quot;).setValue(pageInfo[&quot;state&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;postalCode&quot;).setValue(pageInfo[&quot;postalCode&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;country&quot;).setValue(pageInfo[&quot;country&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;telephone&quot;).setValue(pageInfo[&quot;telephone&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;fax&quot;).setValue(pageInfo[&quot;fax&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;isoCountryCode&quot;).setValue(pageInfo[&quot;isoCountryCode&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;mailingAddr1&quot;).setValue(pageInfo[&quot;mailingAddr1&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;mailingAddr2&quot;).setValue(pageInfo[&quot;mailingAddr2&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;mailingCity&quot;).setValue(pageInfo[&quot;mailingCity&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;mailingState&quot;).setValue(pageInfo[&quot;mailingState&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;mailingPostalCode&quot;).setValue(pageInfo[&quot;mailingPostalCode&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;mailingCountry&quot;).setValue(pageInfo[&quot;mailingCountry&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;email&quot;).setValue(pageInfo[&quot;email&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;locationWebsite&quot;).setValue(pageInfo[&quot;locationWebsite&quot;]);&#xa;&#x9;&#x9;this.findById(&quot;longitude&quot;).setValue(pageInfo[&quot;longitude&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;this.findById(&quot;latitude&quot;).setValue(pageInfo[&quot;latitude&quot;]);&#x9;&#x9;&#xa;&#x9;&#x9;&#xa;    }&#xa;}"/>
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tab1
+            jcr:primaryType="cq:Panel"
+            title="Body text configuration">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <bodyTextTitle
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Title"
+                    name="./bodyTextTitle"
+                    xtype="textfield"/>
+                <bodyTextSubTitle
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Subtitle"
+                    name="./bodyTextSubTitle"
+                    xtype="textfield"/>
+                <anchorid
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Anchor Id"
+                    name="./anchorid"
+                    xtype="textfield"/>
+            </items>
+        </tab1>
+    </items>
+</jcr:root>

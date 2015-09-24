@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/main/content/jcr_root" excluding="**/.vlt|**/.vltignore|**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/inject/javax.inject/1/javax.inject-1.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/my-group-id/myproject-bundle/1.0-SNAPSHOT/myproject-bundle-1.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/adobe/aem/aem-api/6.0.0.1/aem-api-6.0.0.1.jar"/>
+</classpath>
