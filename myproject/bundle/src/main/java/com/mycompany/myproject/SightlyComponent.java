@@ -22,7 +22,7 @@ public class SightlyComponent extends WCMUse {
 	@Override
 	public void activate() {
 	//	System.out.println("hello");
-		myTitle = "My Project " + getCurrentPage().getTitle()+" "+getResource().getPath();
+		myTitle = "My Project is " + getCurrentPage().getTitle()+" "+getResource().getPath();
 	}
 
 }
